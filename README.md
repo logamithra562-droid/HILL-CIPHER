@@ -88,6 +88,8 @@ int main()
 ~~~
 
 ## OUTPUT
+<img width="1175" height="590" alt="Screenshot 2026-10-29 081147" src="https://github.com/user-attachments/assets/676d0c52-692d-4078-8d8c-b6f42abcfdc4" />
+
 
 ## RESULT
 Thus, the C program to implement the Hill cipher substitution technique was written and executed successfully.
