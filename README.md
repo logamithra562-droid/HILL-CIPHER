@@ -29,7 +29,68 @@ STEP-4: Multiply the two matrices to obtain the cipher text of length three.
 STEP-5: Combine all these groups to get the complete cipher text.
 
 ## PROGRAM 
+~~~
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+int main()
+{
+    char plaintext[100], ciphertext[100];
+    int key[3][3], i, j, k;
+    int len, a, b, c, sum;
+
+    printf("Enter the plaintext (letters only): ");
+    scanf("%99s", plaintext);
+
+    printf("Enter the 3x3 key matrix:\n");
+    for (i = 0; i < 3; i++)
+    {
+        for (j = 0; j < 3; j++)
+        {
+            scanf("%d", &key[i][j]);
+        }
+    }
+
+    len = strlen(plaintext);
+
+    for (i = 0; i < len; i++)
+        plaintext[i] = toupper(plaintext[i]);
+
+    while (len % 3 != 0)
+        plaintext[len++] = 'X';
+
+    plaintext[len] = '\0';
+
+    for (i = 0; i < len; i += 3)
+    {
+        a = plaintext[i] - 'A';
+        b = plaintext[i + 1] - 'A';
+        c = plaintext[i + 2] - 'A';
+
+        for (j = 0; j < 3; j++)
+        {
+            sum = key[j][0] * a
+                + key[j][1] * b
+                + key[j][2] * c;
+
+            ciphertext[i + j] = (sum % 26) + 'A';
+        }
+    }
+
+    ciphertext[len] = '\0';
+
+    printf("Padded Plaintext: %s\n", plaintext);
+    printf("Ciphertext: %s\n", ciphertext);
+
+    return 0;
+}
+~~~
 
 ## OUTPUT
 
 ## RESULT
+Thus, the C program to implement the Hill cipher substitution technique was written and executed successfully.
+
+
+
